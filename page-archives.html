@@ -1,0 +1,47 @@
+---
+layout: default
+---
+
+<ul id="smart-archives-block">
+
+  {% for year in page.years reversed %}
+    <li>
+      <strong><a href="#archive-{{ year }}">{{ year }}</a></strong>
+
+      {% for month in (1..12) %}
+        {% assign has_posts = (page.grouped_posts[year][month] | size) %}
+        {% if has_posts > 0 %}
+          <a href="#archive-{{ year }}-{{ month | rjust:2, "0" }}">{{ page.month_abbreviations[month] }}</a>
+        {% else %}
+          <span class="empty-month">{{ page.month_abbreviations[month] }}</span>
+        {% endif %}
+      {% endfor %}
+
+    </li>
+  {% endfor %}
+
+</ul>
+
+<div id="smart-archives-list">
+
+  {% for year in page.years reversed %}
+
+    <a name="archive-{{ year }}"></a>
+
+    {% for month in (1..12) reversed %}
+      {% assign has_posts = (page.grouped_posts[year][month] | size) %}
+      {% if has_posts > 0 %}
+        <h3 id="archive-{{ year }}-{{ month | rjust:2, "0" }}">
+          {{ page.month_names[month] }}, {{ year }}
+        </h3>
+
+        <ul class="archive-list">
+          {% for post in page.grouped_posts[year][month] reversed %}
+            <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endfor %}
+  {% endfor %}
+
+</div>

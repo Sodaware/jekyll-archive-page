@@ -1,0 +1,41 @@
+* Jekyll Archives
+
+A really simple Jekyll plugin for building an archive page.
+
+For an example page, see http://www.philnewton.net/blog/archives/.
+
+** Usage
+
+ - Copy the =archive_page.rb= file into your Jekyll =plugins= directory
+ - Copy the =page-archives.html= file into your =_layouts= directory
+ - Update your configuration file with the desired location of your archive
+   page.
+
+*Example Configuration Value*
+
+=_config.yml=
+#+BEGIN_SRC yml
+archive_path: blog/archives/
+#+END_SRC
+
+This will create an archive file at =/blog/archives/index.html=.
+
+** Licence
+
+jekyll-archive-page - A simple archive plugin for Jekyll
+
+Copyright (C) 2013  Phil Newton
+
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
