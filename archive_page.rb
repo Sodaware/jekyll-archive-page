@@ -46,7 +46,7 @@ module Jekyll
     def get_grouped_posts
       
       # Get date of first post
-      start_year = site.posts[0].year
+      start_year = site.posts.docs.first.year
       end_year   = Date.today.year
       
       years      = (start_year .. end_year).to_a
