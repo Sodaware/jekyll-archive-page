@@ -44,30 +44,29 @@ module Jekyll
     end
     
     def get_grouped_posts
-      
+
       # Get date of first post
-      start_year = site.posts.docs.first.year
+      start_year = site.posts.docs.first.data['date'].year
       end_year   = Date.today.year
-      
-      years      = (start_year .. end_year).to_a
+
+      years      = (start_year..end_year).to_a
       post_map   = {}
-      
-      for year in years
+
+      years.each do |year| 
         post_map[year] = Hash.new
-        
-        for month in (1..12)
+
+        (1..12).each do |month| 
           post_map[year][month] = Array.new
         end
-        
       end
-      
+
       # Add each post
-      site.blog_posts.each do |post|
-        post_map[post.year][post.month] << post
+      site.posts.docs.each do |post|
+        post_map[post.data['date'].year][post.data['date'].month] << post
       end
-      
+
       return post_map
-      
+
     end
     
   end
