@@ -9,7 +9,7 @@ layout: default
       <strong><a href="#archive-{{ year }}">{{ year }}</a></strong>
 
       {% for month in (1..12) %}
-        {% assign has_posts = (page.grouped_posts[year][month] | size) %}
+        {% assign has_posts = page.grouped_posts[year][month] | size %}
         {% if has_posts > 0 %}
           <a href="#archive-{{ year }}-{{ month | rjust:2, "0" }}">{{ page.month_abbreviations[month] }}</a>
         {% else %}
@@ -29,7 +29,7 @@ layout: default
     <a name="archive-{{ year }}"></a>
 
     {% for month in (1..12) reversed %}
-      {% assign has_posts = (page.grouped_posts[year][month] | size) %}
+      {% assign has_posts = page.grouped_posts[year][month] | size %}
       {% if has_posts > 0 %}
         <h3 id="archive-{{ year }}-{{ month | rjust:2, "0" }}">
           {{ page.month_names[month] }}, {{ year }}
